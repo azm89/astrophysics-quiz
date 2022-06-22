@@ -7,7 +7,7 @@ var gameoverEl = document.getElementById("gameover");
 var questionsEl = document.getElementById("questions");
 var quizTimer = document.getElementById("timer");
 var startQuizButton = document.getElementById("startbtn");
-var startQuizDiv = document.getElementById("startPage");
+var startQuizEL = document.getElementById("startPage");
 var hsContainer = document.getElementById("highscoreContainer");
 var hsEl = document.getElementById("highscorePage");
 var hsInputName = document.getElementById("initials");
@@ -102,6 +102,76 @@ var questions = [
   },
 ];
 
-function startQuiz(){
-    
+//cycles through the questions array and generates the quiz questions
+function generateQuestions() {
+  gameoverEl.style.display = "none";
+
+  if (currentQuestion === finalQuestion) {
+    return showScore();
+  }
+  var currentQuestion = quizQuestions[currentQuestion];
+  questionsEl.innerHTML = currentQuestion.choiceA;
+  questionsEl.innerHTML = currentQuestion.choiceB;
+  questionsEl.innerHTML = currentQuestion.choiceC;
 }
+
+function startQuiz() {
+  gameoverEl.style.display = "none";
+  startQuizEL.style.display = "none";
+  generateQuestions();
+
+  timerInterval = setInterval(function () {
+    timeLeft--;
+    quizTimer.textContent = "Time left: " + timeLeft;
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      showScore();
+      }
+  }, 1000);
+  quizBody.styleDisplay = 'block';
+}
+
+function showScore() {
+  quizBody.style.display = 'none';
+  gameoverEl.style.display = 'flex';\
+  clearInterval(timerInterval);
+  hsInputName.value = "";
+  finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+  }
+
+  submitScoreBtn.addEventListener("click", function highscore() {
+
+    if (hsInputName.value === "") {
+      alert("Cannot be blank");
+      return false;
+    }else{
+      var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+      var currentUser = highscoreInputName.value.trim();
+      var currentHs = {
+        name: currentUser,
+        score: score
+      };
+
+      gameoverEl.style.display = "none";
+      hsContainer.style.display = "flex";
+      hsEl.style.display = "block";
+      endGameBtns.style.display = "flex";
+
+      savedHighscores.push(currentHs);
+      localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+      generateHighscores();
+    }
+  });
+
+  function generateHighscores() {};
+
+  function showScore() {};
+
+  function clearScore() {};
+
+  function replayQuiz() {};
+
+  function checkAnswer() {};
+
+  startQuizButton.addEventListener("click", startQuiz);

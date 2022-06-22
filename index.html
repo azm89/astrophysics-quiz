@@ -13,20 +13,38 @@
             <h2>Physics Quiz</h2>
             <h3>Test your knowledge!</h3>
             <button id="startBtn">Start</button>
+            <button id="startPageHs" onclick="showHighscore();">High Scores</button>
         </div>
 
         <div id = "quiz">
             <div id = "timer"></div>
             <div id = "questions">Placeholder</div>
-            <button id = "a">A</button>
-            <button id = "b">B</button>
-            <button id = "c">C</button>
-            <button id = "d">D</button>
+            <button id = "a" onclick="checkAnswer('a')">A</button>
+            <button id = "b" onclick="checkAnswer('b')">B</button>
+            <button id = "c" onclick="checkAnswer('c')">C</button>
+            <div id = "result" ></div>
+        </div>
+        <div id = 'gameOver'>
+            <div id = "finalScore"></div>
+            <input type="text" size="40" placeholder="Enter you intials for the high score." name="initials" id="initials"/>
+            <button id="submitScore">Submit Score</button>
+        </div>
+        <div id = "hsContainer">
+            <div id="hsPage">
+                <div id="hsHeader">
+                    <h3>User Initials</h3>
+                    <h3>score</h3>
+                </div>
+                <div id="endgameBtns">
+                    <button id="playAgain" onclick="replayQuiz()">Play Again</button>
+                    <button id="clearHS" onclick="clearHS()">High Scores</button>
+                </div>
+            </div>
         </div>
     </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
     <!-- <script src="/assets/js/quizBody.js"></script> -->
     <script src="/assets/js/quiz.js"></script>
 </body>
