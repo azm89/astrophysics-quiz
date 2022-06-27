@@ -22,7 +22,7 @@ var buttonC = document.getElementById("c");
 //questions
 var quizQuestions = [
   {
-    question: "What type of galaxy is out Milky Way?",
+    question: "What type of galaxy is our Milky Way?",
     choiceA: "Elliptical",
     choiceB: "Spiral",
     choiceC: "Irregular",
@@ -105,7 +105,7 @@ var correct;
 //cycles through the questions array and generates the quiz questions
 function generateQuestions() {
   gameoverEl.style.display = "none";
-  if (currentQuestion === finalQuestion) {
+  if (currentQuestionI === finalQuestion) {
     return showScore();
   }
   var currentQuestion = quizQuestions[currentQuestionI];
@@ -115,11 +115,13 @@ function generateQuestions() {
   buttonC.innerHTML = currentQuestion.choiceC;
 };
 
+
+//starts the quiz
 function startQuiz() {
   gameoverEl.style.display = "none";
   startQuizEL.style.display = "none";
   generateQuestions();
-
+//timer
   timerInterval = setInterval(function() {
     timeLeft--;
     quizTimer.textContent = "Time left: " + timeLeft;
@@ -131,6 +133,7 @@ function startQuiz() {
   }, 1000);
   quizBody.style.display = "block";
 };
+
 
 function showScore() {
   quizBody.style.display = "none";
@@ -164,6 +167,7 @@ submitScoreBtn.addEventListener("click", function highscore() {
     generateHighscores();
   }
 });
+
 
 function generateHighscores() {
   hsDisplayName.innerHTML = "";
@@ -201,14 +205,14 @@ function replayQuiz() {
   startQuizEL.style.display = "flex";
   timeLeft = "75";
   score = 0;
-  currentQuestion = 0;
+  currentQuestionI = 0;
 };
 
 function checkAnswer(answer) {
   correct = quizQuestions[currentQuestionI].correctAnswer;
 
   if (answer === correct && currentQuestionI !== finalQuestion) {
-    score ++;
+    score++;
     alert("Correct!");
     currentQuestionI++;
     generateQuestions();

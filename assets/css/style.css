@@ -1,5 +1,9 @@
 :root{
-    background-color: #424B54;
+    background-color: #0f0517;
+    --xiketic: #0F0517;
+    --trypan: #461DA1;
+    --unblue: #5a8ed5;
+    --persian: #331469;
     }
     
     li{
@@ -10,8 +14,7 @@
     }
     
     p{
-        color: black;
-        text-shadow: .5px .5px white;
+        color: var(--unblue);
         text-align: center;
         font-size: xx-large;
         font-family: sans-serif;
@@ -20,7 +23,13 @@
     h2{
         font-family: sans-serif;
         margin-top: -.5rem;
+        color: var(--unblue);
     }
+
+    h3{
+        color: var(--unblue);
+    }
+
     input{
         text-align: center;
     }
@@ -36,12 +45,11 @@
       }
     
       button {
-        display: inline-block;
+        display:inline-block;
         justify-content: center;
         font-family: sans-serif;
-        background-color: #5e6df1;
+        background-color: var(--trypan);
         border-radius: 10px;
-        border: 3px double #cccccc;
         color: #eeeeee;
         text-align: center;
         font-size: 15px;
@@ -51,7 +59,7 @@
       }
     
       button:hover{
-          box-shadow: 4px 3px 6px #4450bd;
+          box-shadow: 4px 3px 6px var(--persian);
       }
     
     #startPage{
@@ -62,7 +70,7 @@
     
     #timer{
         font-family: sans-serif;
-        background-color: #5a69f0;
+        background-color: var(--trypan);
         color: #eeeeee;
         font-size: x-large;
         text-shadow: .5px .5px black;
@@ -70,6 +78,7 @@
     }
     #quizBody {
         display: none;
+        justify-content: center;
     }
     
     #result {
@@ -92,10 +101,10 @@
         display: none;
         width: 50%;
         border: solid;
-        border-color: silver;
+        border-color: var(--unblue);
         border-bottom-style: groove;
         padding-bottom: .3rem;
-        background: lightsteelblue;
+        background: var(--unblue);
     }
     
     #hsHeader{
@@ -103,7 +112,7 @@
         justify-content: space-around;
         border-bottom-style: outset;
         margin-bottom: .5rem;
-        background-color: #5e6df1;
+        background-color: var(--trypan);
         color: #eeeeee;
         font-family: sans-serif;
     }
@@ -141,6 +150,7 @@
         font-size: x-large;
         font-family: sans-serif;
         font-weight: bold;
+        color: var(--unblue);
     }
     
     #endGameBtns{
