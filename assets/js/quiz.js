@@ -203,7 +203,7 @@ function replayQuiz() {
   hsContainer.style.display = "none";
   gameoverEl.style.display = "none";
   startQuizEL.style.display = "flex";
-  timeLeft = "75";
+  timeLeft = 75;
   score = 0;
   currentQuestionI = 0;
 };
